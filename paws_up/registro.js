@@ -17,7 +17,7 @@ export default function Registro({ navigation }) {
     }
 
     try {
-      const response = await axios.post('http://192.168.1.42:3000/register', { nombre, email, contraseña,celular });
+      const response = await axios.post('https://paws-up.onrender.com/register', { nombre, email, contraseña,celular });
       console.log(response.data);
       navigation.navigate('Login');
     } catch (error) {

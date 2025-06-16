@@ -18,7 +18,7 @@ const PostDetailScreen = ({ route }) => {
   useEffect(() => {
     const fetchPostDetails = async () => {
       try {
-        const response = await fetch(`http://192.168.1.42:3000/animals/${itemId}`);
+        const response = await fetch('https://paws-up.onrender.com/animals/${itemId}');
         const json = await response.json();
         setPostDetails(json);
 

@@ -46,7 +46,7 @@ crearUsuario(datosUsuario);
 */
 export async function crearAnimal(req) {
     const { animal_type, breed, sexing, state_description, exact_location,user_id } = req.body;
-    const image_data = req.files.map(file => 'http://192.168.1.42:3000/' + file.filename);
+    const image_data = req.files.map(file => 'https://paws-up.onrender.com/uploads/' + file.filename);
     const [resultado] = await pool.query(
         'INSERT INTO animals (animal_type, breed, sexing, state_description, exact_location, image_data,user_id) VALUES (?, ?, ?, ?, ?, ?,?)',
         [animal_type, breed, sexing, state_description, exact_location, JSON.stringify(image_data),user_id]

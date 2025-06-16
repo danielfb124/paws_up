@@ -12,7 +12,7 @@ export default function Login({ navigation }) {
 
     const handleLogin = async () => {
         try {
-            const response = await axios.post('http://192.168.1.42:3000/login', { email, password });
+            const response = await axios.post('https://paws-up.onrender.com/login', { email, password });
             if (response.status === 200) {
                 setIsAuthenticated(true); 
                 setUsername(response.data.username);

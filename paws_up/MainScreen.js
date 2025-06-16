@@ -47,7 +47,7 @@ const MainScreen = ({ navigation }) => {
 
   const fetchAnimals = async () => {
     try {
-      const response = await fetch('http://192.168.1.42:3000/animals');
+      const response = await fetch('https://paws-up.onrender.com/animals');
       const json = await response.json();
       setData(json);
     } catch (error) {

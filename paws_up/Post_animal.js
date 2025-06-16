@@ -106,7 +106,7 @@ export default function PostAnimal({ navigation }) {
     formData.append('user_id', userId);
 
     try {
-      const response = await axios.post('http://192.168.1.42:3000/postAnimal', formData, {
+      const response = await axios.post('https://paws-up.onrender.com/postAnimal', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },

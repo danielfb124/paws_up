@@ -18,7 +18,8 @@ CREATE TABLE Animals (
     state_description VARCHAR(255),
     exact_location VARCHAR(255),
     adopted BOOLEAN DEFAULT false,
-    image_data VARCHAR(255)
+    image_data VARCHAR(255),
+    user_id INT
 );
 INSERT INTO users (name, email, password) VALUES ('Daniel', 'danielfw4k@gmail.com', '2024');
 
