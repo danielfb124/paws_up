@@ -1,0 +1,48 @@
+{
+  "expo": {
+    "name": "paws_up",
+    "slug": "paws_up",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.tuempresa.tuapp",
+      "config": {
+        "googleMapsApiKey": "AIzaSyA_ii62i__7sYEscq8HggmsnzXiRmKnnbI"
+      }
+    },
+    "android": {
+      "package": "com.tuempresa.tuapp",
+      "config": {
+        "googleMaps": {
+          "apiKey": "AIzaSyA_ii62i__7sYEscq8HggmsnzXiRmKnnbI"
+        }
+      },
+      "permissions": [
+        "ACCESS_FINE_LOCATION",
+        "ACCESS_COARSE_LOCATION"
+      ]
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      [
+        "@rnmapbox/maps",
+        {
+          "accessToken": "sk.eyJ1IjoiZGFuaWVsZmIxMjQiLCJhIjoiY20ybHpoMHI1MGdrdjJscHdzaDd1OWw1ZSJ9.Lv022kbg8LPlDGu8pQn-SA" 
+        }
+      ]
+    ]
+  }
+}
