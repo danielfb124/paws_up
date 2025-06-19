@@ -7,7 +7,8 @@ import { dirname } from 'path';
 import http from 'http';
 import { Server } from 'socket.io';
 import { crearUsuario, getUserByID, getUserByEmail, compararContraseña, obtenerAnimales, crearAnimal,obtenerUsuarioDePublicacion,obtenerAnimalPorId} from './database.js';
-
+import cloudinary from './cloudinary.js';
+import { CloudinaryStorage } from 'multer-storage-cloudinary';
 const app = express();
 const server = http.createServer(app);
 const io = new Server(server);
@@ -15,20 +16,19 @@ const io = new Server(server);
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-const storage = multer.diskStorage({
-    destination: function(req, file, cb) {
-        cb(null, './uploads');
-    },
-    filename: function(req, file, cb) {
-        cb(null, file.fieldname + '-' + Date.now());
-    },
+const storage = new CloudinaryStorage({
+  cloudinary,
+  params: {
+    folder: 'paws_up',
+    allowed_formats: ['jpg', 'png', 'jpeg'],
+  },
 });
 
-const upload = multer({ storage: storage });
+const upload = multer({ storage });
 
 app.use(cors());
 app.use(express.json());
-app.use('/', express.static(path.join(__dirname, './uploads')));
+
 
 
 
@@ -57,21 +57,21 @@ app.post('/login', async (req, res) => {
     const { email, password } = req.body;
 
     try {
-        // Usa la función getUserByEmail para obtener el usuario
+
         const user = await getUserByEmail(email);
 
         if (!user) {
             return res.status(401).json({ message: 'Usuario no encontrado' });
         }
 
-        // Usa la función compararContraseña para verificar la contraseña
+     
         const isPasswordValid = await compararContraseña(password, user.password);
 
         if (!isPasswordValid) {
             return res.status(401).json({ message: 'Contraseña incorrecta' });
         }
 
-        // Enviar la respuesta con el nombre de usuario y su ID
+      
         res.json({ username: user.name, userId: user.id });
     } catch (error) {
         console.error('Error en el login:', error);
@@ -108,7 +108,7 @@ app.get('/obtenerCelular/:animalId', async (req, res) => {
 
   
 app.post('/postAnimal', upload.array('image', 10), async (req, res) => {
-    // Verificar si se subieron archivos
+
     if (!req.files || req.files.length === 0) {
         return res.status(400).send('No se encontraron archivos para cargar.');
     }

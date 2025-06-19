@@ -56,12 +56,29 @@ const MainScreen = ({ navigation }) => {
   };
 
   const renderItem = ({ item }) => {
-    if (!item.image_data || item.image_data.length === 0) {
+    /*if (!item.image_data || item.image_data.length === 0) {
       return (
         <Text style={styles.descriptionText}>No se pudo renderizar el animal con id {item.id} porque no tiene imágenes.</Text>
       );
-    }
-    const firstImage = item.image_data[0];
+    }*/
+   let images = [];
+
+try {
+  // Si image_data ya es array, úsalo directamente. Si es string, parsea.
+  images = typeof item.image_data === 'string' ? JSON.parse(item.image_data) : item.image_data;
+} catch (e) {
+  console.warn('No se pudo parsear image_data:', item.image_data);
+  images = [];
+}
+
+if (!images || images.length === 0) {
+  return (
+    <Text style={styles.descriptionText}>No se pudo renderizar el animal con id {item.id} porque no tiene imágenes.</Text>
+  );
+}
+
+const firstImage = images[0];
+
     return (
       <TouchableOpacity onPress={() => navigation.navigate('PostDetail', { itemId: item.id })}>
         <View style={styles.card}>
