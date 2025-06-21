@@ -13,12 +13,10 @@
     "@react-native-async-storage/async-storage": "^2.1.2",
     "@react-native-community/masked-view": "^0.1.11",
     "@react-native-community/viewpager": "^5.0.11",
-    "@react-native-mapbox-gl/maps": "^8.6.0-beta.0",
     "@react-native-picker/picker": "^2.11.0",
     "@react-navigation/drawer": "^6.6.15",
     "@react-navigation/native": "^6.1.17",
     "@react-navigation/stack": "^6.3.29",
-    "@rnmapbox/maps": "^10.1.31",
     "axios": "^1.7.7",
     "expo": "^53.0.12",
     "expo-document-picker": "~13.1.6",
@@ -46,8 +44,7 @@
     "react-native-vector-icons": "^10.2.0",
     "react-native-web": "^0.20.0",
     "react-native-webview": "^13.13.5",
-    "socket.io-client": "^4.7.5",
-    "undefined": "\\"
+    "socket.io-client": "^4.7.5"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0"

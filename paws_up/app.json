@@ -36,13 +36,12 @@
     "web": {
       "favicon": "./assets/favicon.png"
     },
-    "plugins": [
-      [
-        "@rnmapbox/maps",
-        {
-          "accessToken": "sk.eyJ1IjoiZGFuaWVsZmIxMjQiLCJhIjoiY20ybHpoMHI1MGdrdjJscHdzaDd1OWw1ZSJ9.Lv022kbg8LPlDGu8pQn-SA" 
-        }
-      ]
-    ]
+   
+    "extra": {
+      "eas": {
+        "projectId": "f7d3965c-03b5-46c1-a024-92bc01e58973"
+      }
+    },
+    "owner": "danielfb"
   }
 }
